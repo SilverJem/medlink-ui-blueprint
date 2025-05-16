@@ -39,7 +39,7 @@ const Index = () => {
                 <Button 
                   variant="outline" 
                   size="lg"
-                  className="border-white text-white hover:bg-white/20"
+                  className=" bg-transparent border-white text-white hover:bg-white/20"
                   onClick={() => navigate('/about')}
                 >
                   Learn More
@@ -272,7 +272,7 @@ const Index = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-white text-white hover:bg-white/20"
+                className="bg-transparent border-white text-white hover:bg-white/20"
                 onClick={() => navigate('/login')}
               >
                 Login
