@@ -117,20 +117,20 @@ const AppointmentCard = ({
           {/* Action buttons */}
           {!hideActions && (
             <div className="flex gap-2 mt-4">
-              {(status === 'scheduled' || status === 'in-progress') && (
+              {status === 'scheduled' && (
                 <>
-                  <Button 
-                    className="flex-1" 
-                    disabled={status === 'cancelled' || status === 'completed'}
-                  >
-                    {status === 'in-progress' ? 'Join Now' : 'Start'}
+                  <Button className="flex-1">
+                    Start
                   </Button>
-                  {status === 'scheduled' && (
-                    <Button variant="outline" className="flex-1">
-                      Reschedule
-                    </Button>
-                  )}
+                  <Button variant="outline" className="flex-1">
+                    Reschedule
+                  </Button>
                 </>
+              )}
+              {status === 'in-progress' && (
+                <Button className="flex-1">
+                  Join Now
+                </Button>
               )}
               {status === 'completed' && (
                 <Button variant="outline" className="flex-1">
