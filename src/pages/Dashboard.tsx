@@ -2,6 +2,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import Layout from '@/components/layout/Layout';
+import AdminLayout from '@/components/layout/AdminLayout';
 import PatientDashboard from '@/components/dashboard/PatientDashboard';
 import DoctorDashboard from '@/components/dashboard/DoctorDashboard';
 import AdminDashboard from '@/components/dashboard/AdminDashboard';
@@ -26,12 +27,20 @@ const Dashboard = () => {
     );
   }
 
-  // Display the appropriate dashboard based on user role
+  // For admin, use the AdminLayout
+  if (user?.role === 'admin') {
+    return (
+      <AdminLayout>
+        <AdminDashboard />
+      </AdminLayout>
+    );
+  }
+
+  // For other roles, use the normal layout
   return (
     <Layout>
       {user?.role === 'patient' && <PatientDashboard />}
       {user?.role === 'doctor' && <DoctorDashboard />}
-      {user?.role === 'admin' && <AdminDashboard />}
     </Layout>
   );
 };
